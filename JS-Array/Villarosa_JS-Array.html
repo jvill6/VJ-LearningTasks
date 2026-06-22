@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <html>
     <head>
         
@@ -18,18 +20,52 @@
         <label for="passIn">Password: </label> 
         <input type="password" id="passIn"> <br>
 
-        <br>
-
+        <div id="buttonContainer">
         <button onclick="registerUser()">Register</button>
         <button onclick="deleteUser()">Delete</button>
         <button onclick="searchUser()">Search</button>
-        <button onclick="editUser()">Edit</button>
+        <button onclick="editUser()">Edit</button>   
+        </div>
 
+        <p id="status" style="font-weight: bold;"></p>
+
+        <div id="listContainer">
+        <h2>User List:</h2>
+        <p id="userList"> </p>
+        </div>
 
 
 
         <script>
+            
             var userInfo = [];
+            var listText = "";   
+            
+            function registerUser() {
+
+                for (var i = 0; i < userInfo.length; i += 2) {
+                    if (document.getElementById("userIn").value = userInfo[i]) {
+                        document.getElementById()
+                    }
+                }
+
+            
+                
+            } function deleteUser() {
+
+            } function searchUser() {
+
+            } function editUser() {
+
+            } function updateList() {
+                //Clearing the variable to avoid duplicates
+                listText="";
+                
+                for (var i = 0; i < userInfo.length; i += 2) {
+                    listText += userInfo[i] + "<br>";
+                }
+                document.getElementById("userList").innerHTML = listText;
+            }
         </script>
     </body>
 </html>
