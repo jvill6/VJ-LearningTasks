@@ -61,11 +61,45 @@
                 updateList();
                 
             } function deleteUser() {
+                const userIndex = userInfo.indexOf(document.getElementById("userIn").value);
+                if (document.getElementById("passIn").value != userInfo[userIndex + 1]) {
+                    document.getElementById("status").style.color = "Red";
+                    document.getElementById("status").innerHTML = "Incorrect Details";
+                    return;
+                }
+                
+                document.getElementById("status").style.color = "Black";
+                document.getElementById("status").innerHTML = "Account Deletion Successful!";
+
+                userInfo.splice(userIndex, 2);
+                updateList();
 
             } function searchUser() {
+                //reused because it does everything thats needed
+                const userIndex = userInfo.indexOf(document.getElementById("userIn").value);
+                if (userIndex === -1) {
+                    document.getElementById("status").style.color = "Red";
+                    document.getElementById("status").innerHTML = "Account not found";
+                } else {
+                    document.getElementById("status").style.color = "Green";
+                    document.getElementById("status").innerHTML = "An account with this username exists";
+                }
+
 
             } function editUser() {
+                //again reusing functions because i don't wanna make a whole 'nother function for this
+                const userIndex = userInfo.indexOf(document.getElementById("userIn").value);
+                if (document.getElementById("passIn").value != userInfo[userIndex + 1]) {
+                    document.getElementById("status").style.color = "Red";
+                    document.getElementById("status").innerHTML = "Incorrect Details";
+                    return;
+                }
 
+                userInfo[userIndex] = prompt("Enter new username");
+                userInfo[userIndex + 1] = prompt("Enter new password");
+
+                updateList();
+                
             } function updateList() {
                 //Clearing input boxes
                 document.getElementById("userIn").value = "";
