@@ -1,1 +1,35 @@
+<html>
+    <head>
+        
+        
 
+        <style>
+            * {
+                font-family: monospace;
+            } body {
+                background-color: cadetblue;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>User Registration System</h1>
+        <label for="userIn">Username: </label>
+        <input type="text" id="userIn"> <br> <br>
+        <label for="passIn">Password: </label> 
+        <input type="password" id="passIn"> <br>
+
+        <br>
+
+        <button onclick="registerUser()">Register</button>
+        <button onclick="deleteUser()">Delete</button>
+        <button onclick="searchUser()">Search</button>
+        <button onclick="editUser()">Edit</button>
+
+
+
+
+        <script>
+            var userInfo = [];
+        </script>
+    </body>
+</html>
