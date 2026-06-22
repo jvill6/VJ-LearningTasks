@@ -18,7 +18,7 @@
         <label for="userIn">Username: </label>
         <input type="text" id="userIn"> <br> <br>
         <label for="passIn">Password: </label> 
-        <input type="password" id="passIn"> <br>
+        <input type="password" id="passIn"> <br> <br>
 
         <div id="buttonContainer">
         <button onclick="registerUser()">Register</button>
@@ -42,14 +42,23 @@
             var listText = "";   
             
             function registerUser() {
-
                 for (var i = 0; i < userInfo.length; i += 2) {
-                    if (document.getElementById("userIn").value = userInfo[i]) {
-                        document.getElementById()
+                    if (document.getElementById("userIn").value === userInfo[i]) {
+                        document.getElementById("status").style.color = "Red";
+                        document.getElementById("status").innerHTML = "That user already exists!";
+                        //Breaks function early (is this allowed? I already knew this trick from a highschool class)
+                        return;
                     }
                 }
 
-            
+                //My first thought was to have the password be on length + 1 then i realized it already increments on its own (i'm stupid)
+                userInfo[userInfo.length] = document.getElementById("userIn").value;
+                userInfo[userInfo.length] = document.getElementById("passIn").value;
+
+                document.getElementById("status").style.color = "Black";
+                document.getElementById("status").innerHTML = "Account Creation Successful!";
+
+                updateList();
                 
             } function deleteUser() {
 
@@ -58,13 +67,18 @@
             } function editUser() {
 
             } function updateList() {
+                //Clearing input boxes
+                document.getElementById("userIn").value = "";
+                document.getElementById("passIn").value = "";
                 //Clearing the variable to avoid duplicates
                 listText="";
-                
+        
                 for (var i = 0; i < userInfo.length; i += 2) {
                     listText += userInfo[i] + "<br>";
                 }
+                
                 document.getElementById("userList").innerHTML = listText;
+            
             }
         </script>
     </body>
