@@ -55,7 +55,7 @@
                 userInfo[userInfo.length] = document.getElementById("userIn").value;
                 userInfo[userInfo.length] = document.getElementById("passIn").value;
 
-                document.getElementById("status").style.color = "Black";
+                document.getElementById("status").style.color = "Green";
                 document.getElementById("status").innerHTML = "Account Creation Successful!";
 
                 updateList();
@@ -64,11 +64,11 @@
                 const userIndex = userInfo.indexOf(document.getElementById("userIn").value);
                 if (document.getElementById("passIn").value != userInfo[userIndex + 1]) {
                     document.getElementById("status").style.color = "Red";
-                    document.getElementById("status").innerHTML = "Incorrect Details";
+                    document.getElementById("status").innerHTML = "Invalid Details";
                     return;
                 }
                 
-                document.getElementById("status").style.color = "Black";
+                document.getElementById("status").style.color = "Yellow";
                 document.getElementById("status").innerHTML = "Account Deletion Successful!";
 
                 userInfo.splice(userIndex, 2);
@@ -79,10 +79,10 @@
                 const userIndex = userInfo.indexOf(document.getElementById("userIn").value);
                 if (userIndex === -1) {
                     document.getElementById("status").style.color = "Red";
-                    document.getElementById("status").innerHTML = "Account not found";
+                    document.getElementById("status").innerHTML = "Invalid Account";
                 } else {
                     document.getElementById("status").style.color = "Green";
-                    document.getElementById("status").innerHTML = "An account with this username exists";
+                    document.getElementById("status").innerHTML = "Account Found";
                 }
 
 
@@ -91,12 +91,15 @@
                 const userIndex = userInfo.indexOf(document.getElementById("userIn").value);
                 if (document.getElementById("passIn").value != userInfo[userIndex + 1]) {
                     document.getElementById("status").style.color = "Red";
-                    document.getElementById("status").innerHTML = "Incorrect Details";
+                    document.getElementById("status").innerHTML = "Invalid Details";
                     return;
                 }
 
                 userInfo[userIndex] = prompt("Enter new username");
                 userInfo[userIndex + 1] = prompt("Enter new password");
+
+                document.getElementById("status").style.color = "Green";
+                document.getElementById("status").innerHTML = "Account Edit Successful!";
 
                 updateList();
                 
