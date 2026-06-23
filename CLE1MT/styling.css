@@ -1,7 +1,7 @@
 body {
     background-color: #1C1719;
-} nav{
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+} nav {
+    padding-bottom: 25px;
 } .navbar {
     background-color: #389c93;
     height: 30px;
@@ -13,15 +13,42 @@ body {
     justify-content: center;
     align-items: center;
 } .navLink {
-    padding-left: 7px;
-    padding-right: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
     padding-bottom: 3px;
     padding-top: 3px;
     border-radius: 5px;
-    color: antiquewhite;
+    font-size: 14px;
     background-color: transparent;
     text-decoration: none;
 } .navLink:hover {
     border-radius: 5px;
     background-color: #256661;
+} #titleText {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    width: 100%;    
+    height: 55px;
+} * {
+    color: #FFF;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+} .mainContainer {
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+} .contents {
+    background-color: hsl(333,10%,15%);
+    justify-content: center;
+    align-items: center;
+    min-width: 800px;
+    min-height: 200px;
+    width: 800px;
+    box-shadow: 0px 0px 3px 0.5px #000;
+    line-height: 1.5;
+} .contentText {
+    padding-right: 20px;
+    padding-left: 20px;
 }
