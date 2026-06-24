@@ -78,4 +78,9 @@ body {
     box-shadow: 0px 0px 3px 1px #000;
 } .galCaption {
     margin: 10px;
+} #aboutImg {
+    margin-bottom: 10px;
+    max-width: 700px;
+    height: fit-content;
+    box-shadow: 0px 0px 3px 1px #000;
 }
