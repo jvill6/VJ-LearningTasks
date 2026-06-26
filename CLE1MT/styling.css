@@ -81,7 +81,7 @@ nav {
 /* Gallery Elements */
 
 .galContainer {
-    max-width: 1000px;
+    max-width: 1200px;
     position: relative;
     margin: auto;
 } .galItems {
@@ -109,10 +109,13 @@ nav {
     font-size: 12px;
     padding: 8px 12px;
     position: absolute;
+    border-radius: 16px;
+    background-color: rgba(0,0,0,0.4);
     top: 0;
 } .text {
-    color: #f2f2f2;
-    font-size: 15px;
+    color: #FFF;
+    text-shadow: 0px 0px 2px #000;
+    font-size: 18px;
     padding: 8px 12px;
     position: absolute;
     bottom: 8px;
