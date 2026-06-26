@@ -4,6 +4,20 @@
         <link rel="icon" href="ImgStorage/Anonymous_Globe.png">
         <link rel="stylesheet" href="styling.css">
         <title>Horizon Green</title>
+        <style>
+            .forms {
+                display: grid;
+                grid-template-columns: 50% 50%;
+                justify-content: center;
+                padding: 0px 0px;
+            } input, button {
+                color: black;
+                padding: 5px;
+                margin-bottom: 10px;
+            } input {
+                width: 50%;
+            }
+        </style>
     </head>
     <body>
 
@@ -22,11 +36,45 @@
         <article>
             <div class="mainContainer">
                 <div class="contents">
-
+                    <h1 class="contentText">Join Us</h1>
+                    <div class="forms">
+                        <div id="applying">
+                            <p class="contentText" id="paraText">If you're interested in joining our cause and making a difference, please fill out the form below.</p>
+                            <label for="name" class="contentText">Name:</label>
+                            <input type="text" id="name" name="name"> <br>
+                            <label for="email" class="contentText">Email:</label>
+                            <input type="email" id="email" name="email"> <br>
+                            <!-- I am NOT making a real registration function for a demo website-->
+                            <button onclick="fakeRegister()" style="margin-left: 56%;">Register</button>
+                        </div>
+                        <div id="contacting">
+                            <p class="contentText" id="paraText">Want to receive updates about our initiatives? Fill out the form below.</p>
+                            <label for="email" class="contentText">Email:</label>
+                            <input type="email" id="email" name="email"> <br>
+                            <button onclick="fakeSubscribe()" style="margin-left: 55%;">Subscribe</button>
+                        </div>
+                    </div>
+                    <h1 class="contentText" style="text-align: center; font-size:24px; text-shadow: 2px 2px 4px #389c93;">We thank you for your interest!</h1>
                 </div>
             </div>
         </article>
 
     </body>
+    <script>
+        function fakeRegister() {
+            if (document.getElementById("name").value === "" || document.getElementById("email").value === "") {
+                alert("Please fill out both the name and email fields.");
+                return;
+            }
+            alert("Thank you for registering! We'll be in touch soon.");
+        }
 
+        function fakeSubscribe() {
+            if (document.getElementById("email").value === "") {
+                alert("Please fill out the email field.");
+                return;
+            }
+            alert("Thank you for subscribing! You'll receive updates from us.");
+        }
+    </script>
 </html>
