@@ -1,4 +1,4 @@
 <footer>
- footer area
+ <p>Footer Area</p>
 
 </footer>

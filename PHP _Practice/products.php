@@ -1,17 +1,7 @@
 <html>
     <head>
-        <style>
-            nav
-            {
-                background:green;
-            }
-            footer 
-            {
-                background:yellow;
-            }
-
-        </style>
-    </head>
+        <link rel="stylesheet" href="stylesheet.css">
+    </head>    
     <body>
         <?php require 'nav.php';  ?>
         <section>
