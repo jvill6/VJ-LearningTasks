@@ -2,12 +2,10 @@
     background:green;
     height: 50px;
     width: 100%;
-    position: absolute;
     top: 0;
     left: 0;
     display: flex;
     align-items: center;
-    padding-bottom: 30px;
 } footer {
     background:yellow;
 }
