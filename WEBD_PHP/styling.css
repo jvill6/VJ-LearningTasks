@@ -4,7 +4,7 @@
 nav {
     padding-bottom: 30px;
 } .navbar {
-    background-color: #389c93;
+    background-color: #8ebd88;
     height: 50px;
     width: 100%;
     position: absolute;
@@ -19,7 +19,7 @@ nav {
     padding-top: 10px;
     border-radius: 5px;
     font-size: 14px;
-    font-family: 'Courier New', Courier, monospace;
+    color: white;
     background-color: transparent;
     text-decoration: none;
     justify-content: left;
@@ -29,6 +29,132 @@ nav {
 } .navText {
     order: 2;
 } .navLink:hover {
-    border-radius: 5px;
-    background-color: #256661;
+    animation: hoverFade 0.3s forwards;
 } 
+
+@keyframes hoverFade {
+    to {
+        border-radius: 5px;
+        background-color: #256661;
+    }
+}
+
+
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #111; }
+        .page { min-height: 100vh; display: flex; flex-direction: column; }
+        .login-layout { flex: 1; display: grid; grid-template-columns: 64% 36%; min-height: 615px; }
+        .hero { position: relative; min-height: 615px; padding: 25px 17px; color: white; background: linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.08)), url('images/farm.jpg') center/cover; }
+        .brand { display: flex; align-items: center; gap: 10px; font-size: 36px; }
+        .brand-mark { font-size: 38px; }
+        .hero-copy { position: absolute; left: 17px; bottom: 30px; max-width: 500px; }
+        .hero-copy h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.15; }
+        .hero-copy p { margin: 0; font-size: 17px; line-height: 1.35; }
+        .form-side { display: flex; justify-content: center; align-items: flex-start; padding-top: 145px; background: #ddd; }
+        .login-card { width: min(78%, 267px); padding: 18px 20px 21px; background: #fff; border-radius: 7px; box-shadow: 0 2px 3px #aaa; }
+        .login-card h2 { margin: 0 0 3px; font-size: 25px; }
+        .subtitle { margin: 0 0 24px; font-size: 10px; }
+        label { display: block; margin: 10px 0 4px; font-size: 11px; font-weight: bold; }
+        .password-label { display: flex; justify-content: space-between; }
+        .password-label a { color: #111; font-size: 10px; }
+        input[type="email"], input[type="password"] { width: 100%; height: 24px; border: 1px solid #b9cfbc; border-radius: 5px; padding: 3px 8px; }
+        .remember { display: flex; align-items: center; gap: 5px; margin: 15px 0 27px; color: #777; font-size: 10px; }
+        .remember input { margin: 0; }
+        button { width: 100%; height: 25px; border: 0; border-radius: 5px; background: #0bdd2c; font: bold 10px Georgia, serif; cursor: pointer; }
+        @media (max-width: 700px) { .login-layout { grid-template-columns: 1fr; } .hero { min-height: 430px; } .form-side { padding: 35px 0; } }
+
+        	.site-footer {
+		box-sizing: border-box;
+		min-height: 164px;
+		padding: 18px 7.5%;
+		background: #2c653d;
+		border: 1px solid #1f4b2d;
+		color: #fff;
+		font: 12px Arial, sans-serif;
+	}
+
+	.footer-inner {
+		display: grid;
+		grid-template-columns: 1.1fr 2.1fr 1fr 1fr;
+		gap: 28px;
+		max-width: 1120px;
+		margin: 0 auto;
+	}
+
+	.footer-brand {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		margin: 0 0 17px;
+		font: italic bold 20px Georgia, serif;
+	}
+
+	.footer-brand .leaf {
+		color: #8ebd88;
+		font: 28px Arial, sans-serif;
+		line-height: 1;
+	}
+
+	.back-to-top {
+		display: inline-block;
+		padding: 3px 14px;
+		border: 1px solid #fff;
+		border-radius: 14px;
+		color: #fff;
+		font-size: 10px;
+		text-decoration: none;
+	}
+
+	.footer-description {
+		max-width: 205px;
+		margin: 0;
+		line-height: 1.45;
+	}
+
+	.social-links {
+		display: flex;
+		gap: 12px;
+		margin-top: 16px;
+	}
+
+	.social-links a {
+		display: grid;
+		place-items: center;
+		width: 17px;
+		height: 17px;
+		border: 2px solid #fff;
+		border-radius: 4px;
+		color: #fff;
+		font-weight: bold;
+		text-decoration: none;
+	}
+
+	.footer-heading {
+		margin: 0 0 18px;
+		font-weight: bold;
+	}
+
+	.footer-list {
+		display: grid;
+		gap: 14px;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.footer-list a,
+	.contact-item {
+		color: #fff;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+
+	.contact-item {
+		display: flex;
+		gap: 9px;
+		align-items: center;
+	}
+
+	@media (max-width: 700px) {
+		.footer-inner { grid-template-columns: 1fr 1fr; }
+	}
