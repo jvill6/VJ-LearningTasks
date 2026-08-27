@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VertiPlant | Login</title>
+    <title>VertiPlant | Register</title>
     <link rel="stylesheet" href="styling.css">
 </head>
 <body>
@@ -19,14 +19,17 @@
         </section>
         <section class="form-side">
             <form class="login-card" action="" method="post">
-                <h2>Welcome Back</h2>
-                <p class="subtitle">Sign in to access your farm operations.</p>
+                <h2>Welcome</h2>
+                <p class="subtitle">Create a free account with us today!</p>
+                <label for="fName">First Name:</label>
+                <input id="fName" name="fName" type="text" required>
+                <label for="lName">Last Name:</label>
+                <input id="lName" name="lName" type="text" required>
                 <label for="email">Email:</label>
                 <input id="email" name="email" type="email" required>
-                <div class="password-label"><label for="password">Password:</label><a href="#">Forgot password?</a></div>
+                <label for="password">Password:</label>
                 <input id="password" name="password" type="password" required>
-                <label class="remember"><input type="checkbox" name="remember"> Remember this device</label>
-                <button type="submit">Log - in</button>
+                <button type="submit">Register</button>
             </form>
         </section>
     </main>
