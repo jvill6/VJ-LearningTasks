@@ -3,6 +3,7 @@
 
 nav {
     padding-bottom: 30px;
+	margin-bottom: 20px;
 } .navbar {
     background-color: #8ebd88;
     height: 50px;
@@ -39,7 +40,6 @@ nav {
     }
 }
 
-
         * { box-sizing: border-box; }
         body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #111; }
         .page { min-height: 100vh; display: flex; flex-direction: column; }
@@ -57,13 +57,13 @@ nav {
         label { display: block; margin: 10px 0 4px; font-size: 11px; font-weight: bold; }
         .password-label { display: flex; justify-content: space-between; }
         .password-label a { color: #111; font-size: 10px; }
-        input[type="email"], input[type="password"] { width: 100%; height: 24px; border: 1px solid #b9cfbc; border-radius: 5px; padding: 3px 8px; }
+        input[type="text"],input[type="email"], input[type="password"] { width: 100%; height: 24px; border: 1px solid #b9cfbc; border-radius: 5px; padding: 3px 8px; }
         .remember { display: flex; align-items: center; gap: 5px; margin: 15px 0 27px; color: #777; font-size: 10px; }
         .remember input { margin: 0; }
         button { width: 100%; height: 25px; border: 0; border-radius: 5px; background: #0bdd2c; font: bold 10px Georgia, serif; cursor: pointer; }
         @media (max-width: 700px) { .login-layout { grid-template-columns: 1fr; } .hero { min-height: 430px; } .form-side { padding: 35px 0; } }
 
-        	.site-footer {
+    .site-footer {
 		box-sizing: border-box;
 		min-height: 164px;
 		padding: 18px 7.5%;

@@ -25,9 +25,9 @@
 		</section>
 
 		<section>
-			<h3 class="footer-heading">Help &amp; Support</h3>
+			<h3 class="footer-heading">Help and Support</h3>
 			<ul class="footer-list">
-				<li class="contact-item">✉ <a href="mailto:s23902390@gmail.com">s23902390@gmail.com</a></li>
+				<li class="contact-item">✉ <a href="mailto:s23902390@gmail.com">s2500741@usls.edu.ph</a></li>
 				<li class="contact-item">⌕ <a href="tel:+639230998433">+63 923 099 8433</a></li>
 			</ul>
 		</section>
