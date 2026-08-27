@@ -1,5 +1,12 @@
 <html>
-<head></head>
+<head>    
+    <style>
+        body
+        {
+            background-color:blue;
+        } 
+    </style>
+</head>
 <body>
     <div>
         <form method="POST" action="result.php">

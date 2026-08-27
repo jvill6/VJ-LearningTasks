@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body
+{
+  background-color: lightgreen;
+}
+
+@media only screen and (max-width: 800px)
+{
+  body {
+    background-color: lightblue;
+    font-size:20px;
+  } .flex-container div {
+    background-color: green;
+    border-radius: 25px;
+  }
+}
+.image
+{
+    width: -webkit-fill-available;
+    vertical-align: middle;
+}
+.flex-container
+{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgb(85, 171, 90);
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+</style>
+</head>
+<body>
+<h1>Flexbox</h1>
+<div>A</div>
+<div class="flex-container">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>  
+  <div>D</div>
+  <div><img class="image" src="dog.png"/></div>
+  <div>6</div>  
+  <div>7</div>
+  <div>8</div>
+</div>
+ 
+</body>
+</html>
