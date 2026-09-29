@@ -33,4 +33,8 @@
     <?php require 'footer.php';?>
 </div>
 </body>
+
+<script>
+    
+</script>
 </html>
