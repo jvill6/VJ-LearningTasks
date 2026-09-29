@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VertiPlant | Login</title>
     <link rel="stylesheet" href="styling.css">
+    <script>
+    function toDash() {
+        var emailInput = document.getElementById("email").value;
+        var pwInput = document.getElementById("password").value;
+
+        if (emailInput === "" || pwInput === "") {
+            document.getElementsByClassName("invalidText").style.visibility = 'visible';
+            return;
+        } else {
+            document.getElementsByClassName("invalidText").style.visibility = 'hidden';
+            window.location.href = 'Dashboard.php'
+        }
+    }
+</script>
 </head>
 <body>
 <div class="page">
@@ -26,15 +40,15 @@
                 <div class="password-label"><label for="password">Password:</label><a href="#">Forgot password?</a></div>
                 <input id="password" name="password" type="password" required>
                 <label class="remember"><input type="checkbox" name="remember"> Remember this device</label>
-                <button type="submit">Log - in</button>
+                <p class="invalidText" style="color: red;">Invalid input</p>
+                <button onclick="toDash();">Log - in</button>
             </form>
         </section>
     </main>
     <?php require 'footer.php';?>
 </div>
+
 </body>
 
-<script>
-    
-</script>
+
 </html>
