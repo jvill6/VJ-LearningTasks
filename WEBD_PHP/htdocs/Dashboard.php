@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="styling.css">
+    <link rel="icon" href="Images/logoicon.png">
+    <title>Dashboard</title>
 </head>
 
 <style>
     * {
-    box-sizing: border-box;
+        box-sizing: border-box;
     }
     body {
         margin: 0;
@@ -46,6 +48,10 @@
         height: 100%;
         padding-left: 3%;
         padding-right: 3%;
+        border-style: solid;
+        border: 0px 0px 0px 0px;
+        border-left: 2px #ccc;
+        border-color: #73A473;
     }
     .navcontainer {
         display: flex;
@@ -111,6 +117,7 @@
         flex-direction: column;
         padding-left: 20px;
         padding-right: 20px;
+        box-shadow: 0px 8px 7px -2px rgba(0,0,0,0.6)
     }
     .newtask {
         width: fit-content;
@@ -152,6 +159,7 @@
         flex-direction: column;
         padding-left: 20px;
         padding-right: 20px;
+        box-shadow: 0px 8px 7px -2px rgba(0,0,0,0.6)
     }
     /* .filter {
         width: fit-content;
@@ -181,8 +189,9 @@
     .bglist {
         display: flex;
         flex-direction: row;
-        width: 93%;
+        width: 95%;
         background-color: darkgreen;
+        border-radius: 10px;
         margin: 5px;
         gap: 5px;
         padding-left: 10px;
@@ -399,35 +408,7 @@
         </div>
     </div>
 
-    <div class="footer">
-        <div class="footcontainer">
-            <div class="horizontal2">
-            <img src="Images/logoicon.png" style="height: 45px; width: 45px; padding-top: 8px;"></img>
-            <h2>VertiPlant</h2>
-            </div>
-            <button class="gobackbutton">Go back to top</button>
-        </div>
-        <div class="footcontainer">
-            <p>We aim to contribute to a sustainable future<br>through our services.</p>
-            <p>img</p>
-        </div>
-        <div class="footcontainer">
-            <h3>Site Map</h3>
-            <button class="otherbutton">Dashboard</button>
-            <button class="otherbutton">Manage Plants</button>
-            <button class="otherbutton">Settings</button>
-        </div>
-        <div class="footcontainer">
-            <h3>Legal</h3>
-            <button class="otherbutton">Privacy Policy</button>
-            <button class="otherbutton">Terms of Services</button>
-        </div>
-        <div class="footcontainer">
-            <h3>Help & Support</h3>
-            <button class="otherbutton">s2343849@gmail.com</button>
-            <button class="otherbutton">+65 348 303 0494</button>
-        </div>
-    </div>
+    <?php require 'footer.php';?>
     
 </body>
 </html>
