@@ -14,7 +14,7 @@
     }
     body {
         margin: 0;
-        background-color: darkgreen;
+        background-color: #2c653d;
         width: 100%;
     }
     .allover{
@@ -56,17 +56,20 @@
     .navcontainer {
         display: flex;
         flex-direction: row;
-        background-color: chartreuse;
         border-radius: 50px;
-        margin: 10px;
+        margin: 20px;
         padding-left: 20px;
         align-items: center;
+    } .navcontainer:hover {
+        background-color: chartreuse;
+        padding: 10px;
     }
     .horizontal {
         display: flex;
         flex-direction: row;
         align-items: center;
     }
+
     .horizontal2 {
         display: flex;
         flex-direction: row;
@@ -117,13 +120,13 @@
         flex-direction: column;
         padding-left: 20px;
         padding-right: 20px;
-        box-shadow: 0px 8px 7px -2px rgba(0,0,0,0.6)
+        box-shadow: 0px 8px 10px -5px rgba(0,0,0,0.6)
     }
     .newtask {
         width: fit-content;
         display: flex;
         flex-direction: row;
-        background-color: darkgreen;
+        background-color: #2c653d;
         border-radius: 50px;
         padding-left: 10px;
         padding-right: 10px;
@@ -132,10 +135,10 @@
         right: 5%;
     }
     .circleimg{
-        background-color: darkgreen;
+        background-color: darkseagreen;
         border-radius: 100px;
-        height: 50px;
-        width: 50px;
+        height: fit-content;
+        width: fit-content;
     }
 
 
@@ -159,7 +162,7 @@
         flex-direction: column;
         padding-left: 20px;
         padding-right: 20px;
-        box-shadow: 0px 8px 7px -2px rgba(0,0,0,0.6)
+        box-shadow: 0px 8px 10px -5px rgba(0,0,0,0.6)
     }
     /* .filter {
         width: fit-content;
@@ -176,7 +179,6 @@
         width: 100%;
         height: 100%;
         border: solid;
-        border-color: rgb(197, 195, 195);
         border-color: green;
         border-width: 1px;
         border-radius: 10px;
@@ -184,13 +186,14 @@
         flex-direction: column;
         margin-bottom: 20px;
         align-items: center;
+        padding: 10px;
         gap: 1px;
     }
     .bglist {
         display: flex;
         flex-direction: row;
-        width: 95%;
-        background-color: darkgreen;
+        width: 98%;
+        background-color: #2c653d;
         border-radius: 10px;
         margin: 5px;
         gap: 5px;
@@ -206,7 +209,6 @@
         width: 40%;
         height: fit-content;
         border: solid;
-        border-color: rgb(197, 195, 195);
         border-color: green;
         border-width: 1px;
         border-radius: 10px;
@@ -216,6 +218,7 @@
         padding-right: 20px;
         align-items: center;
         padding-bottom: 15px;
+        box-shadow: 0px 8px 10px -5px rgba(0,0,0,0.6)
     }
     .alerts2container {
         display: flex;
@@ -232,13 +235,14 @@
         border-color: darksalmon;
         border-width: 1px;
         height: fit-content;
+        padding:15px;
     }
     .redcontainer {
         display: flex;
         flex-direction: column;
-        padding-left: 10px;
-        padding-right: 10px;
         height: fit-content;
+        font-size: 13.5px;
+        gap: 10px;
     }
     .green {
         display: flex;
@@ -249,6 +253,7 @@
         border: solid;
         border-color: limegreen;
         border-width: 1px;
+        padding:15px;
     }
     .viewlogsbutton {
         width: 100%;
@@ -259,6 +264,10 @@
         border-radius: 50px;
         border-width: 1px;
         justify-content: center;
+        align-items: center;
+    }
+	.fonttime {
+        font-size: 10px;
     }
 
     
@@ -307,19 +316,19 @@
         <div class="gray">
             <div class="horizontal">
                 <img src="Images/logoicon.png" style="height: 45px; width: 45px; padding-bottom: 8px;"></img>
-                <h1 style="color: darkgreen;">VertiPlant</h1>
+                <h1 style="color: #2c653d;">VertiPlant</h1>
             </div>
             <div class="navcontainer">
                 <img src="Images/dashboard.png"></img>
-                <p>Dashboard</p>
+                <p style="font-size: 13.5px;">Dashboard</p>
             </div>
             <div class="navcontainer">
                 <img src="Images/ManagePlants.png"></img>
-                <p>Manage Plants</p>
+                <p style="font-size: 13.5px;">Manage Plants</p>
             </div>
             <div class="navcontainer">
                 <img src="Images/settings.png"></img>
-                <p>Settings</p>
+                <p style="font-size: 13.5px;">Settings</p>
             </div>
             <div class="username">
                 <img src="Images/profile.png" style="height: 20px; width: 25px;">
@@ -385,20 +394,22 @@
                     <div class="alerts2container">
                     <div class="red">
                         <div class="redcontainer">
-                            <img src="Images/info.png" style="height: 20px; width: 27px; margin-top: 15px;">
+                            <img src="Images/info.png" style="height: 15px; width: 22px;">
                         </div>
                         <div class="redcontainer">
-                            <p>Tower A: Risk of overwatering <br>
-                            See tower A to adjust water pressure.</p>
+                            <span>Tower A: Risk of overwatering</span>
+                            <span>See tower A to adjust water pressure.</span>
+                            <span class="fonttime">5 mins ago</span>
                         </div>
                     </div>
                     <div class="green">
                         <div class="redcontainer">
-                            <img src="Images/info.png" style="height: 20px; width: 27px; margin-top: 15px;">
+                            <img src="Images/info.png" style="height: 15px; width: 22px;">
                         </div>
                         <div class="redcontainer">
-                            <p>Tower A: Risk of overwatering <br>
-                            See tower A to adjust water pressure.</p>
+                            <span>Tower B: Harvest Window Approaching</span>
+                            <span>Lettuce Butterhead in Tower A ready in 48 hours.</span>
+                            <span class="fonttime">2 hours ago</span>
                         </div>
                     </div>
                     <button class="viewlogsbutton">View All Logs</button>

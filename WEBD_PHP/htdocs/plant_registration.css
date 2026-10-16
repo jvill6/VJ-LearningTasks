@@ -1,0 +1,424 @@
+/* VertiPlant registration page — header intentionally omitted */
+:root {
+    --green: #16d934;
+    --dark-green: #285b3b;
+    --heading-green: #315f43;
+    --sidebar-bg: #d9d9d9;
+    --muted: #777;
+    --border: #dedede;
+    --page-bg: #fff;
+    --soft-bg: #f5f5f5;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    color: #202020;
+    background: var(--page-bg);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+
+.registration-layout {
+    display: grid;
+    grid-template-columns: 236px minmax(0, 1fr);
+    min-height: 575px;
+}
+
+/* Left registration progress panel */
+.registration-sidebar {
+    position: relative;
+    padding: 22px 23px;
+    background: var(--sidebar-bg);
+    border-right: 1px solid #bcbcbc;
+}
+
+.registration-sidebar h2 {
+    margin: 0 0 23px;
+    color: var(--heading-green);
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.progress-steps {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.progress-steps::before {
+    position: absolute;
+    top: 24px;
+    bottom: 24px;
+    left: 23px;
+    width: 2px;
+    background: #a6a6a6;
+    content: "";
+}
+
+.step {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+    min-height: 49px;
+}
+
+.step-marker {
+    z-index: 1;
+    flex: 0 0 32px;
+    width: 32px;
+    height: 32px;
+    border: 2px solid #888;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.step.active .step-marker {
+    position: relative;
+    border: 2px solid #1bdc39;
+}
+
+.step.active .step-marker::after {
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #1bdc39;
+    content: "";
+}
+
+.step-copy {
+    display: flex;
+    flex-direction: column;
+    padding-top: 8px;
+    line-height: 1.1;
+}
+
+.step-copy strong {
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.step-copy span {
+    color: #666;
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+.sidebar-back-button,
+.back-button,
+.continue-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 27px;
+    border: 0;
+    border-radius: 18px;
+    font-size: 11px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sidebar-back-button {
+    position: absolute;
+    right: auto;
+    bottom: 22px;
+    left: 23px;
+    width: 127px;
+    color: #111;
+    background: var(--green);
+}
+
+/* Main form */
+.registration-main {
+    min-width: 0;
+    padding: 34px 22px 40px 20px;
+    background: #fff;
+}
+
+.registration-main h1 {
+    margin: 0 0 13px;
+    color: var(--heading-green);
+    font-size: 25px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.plant-form {
+    width: 100%;
+}
+
+.form-card-heading {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    min-height: 51px;
+    padding: 9px 12px 10px;
+    border: 1px solid var(--border);
+    border-bottom: 0;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 -1px 2px rgb(0 0 0 / 4%);
+}
+
+.plant-name-label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    min-width: 0;
+    width: 70%;
+}
+
+.plant-name-label input {
+    width: 100%;
+    min-width: 0;
+    padding: 3px 0;
+    border: 0;
+    outline: none;
+    color: #333;
+    background: transparent;
+    font: inherit;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.plant-name-label input::placeholder {
+    color: #999;
+    opacity: 1;
+}
+
+.edit-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 16px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    color: #fff;
+    background: #858585;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.step-count {
+    flex-shrink: 0;
+    padding: 3px 14px;
+    border-radius: 15px;
+    color: #315f43;
+    background: #b7d9bd;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.fields-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 0;
+    padding: 13px 18px 20px;
+    border: 1px solid var(--border);
+    border-top: 1px solid #eee;
+    border-radius: 0 0 12px 12px;
+    background: #fff;
+    box-shadow: 0 2px 2px rgb(0 0 0 / 12%);
+}
+
+.fields-panel::before {
+    position: absolute;
+    content: "";
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-field label {
+    padding-left: 2px;
+    color: var(--heading-green);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.form-field select,
+.form-field input {
+    width: 100%;
+    height: 27px;
+    padding: 4px 10px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    outline-color: #83c98d;
+    color: #555;
+    background-color: #fff;
+    font-family: inherit;
+    font-size: 11px;
+}
+
+.form-field select {
+    cursor: pointer;
+}
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 15px 16px 0 6px;
+}
+
+.back-button {
+    min-width: 126px;
+    padding: 0 18px;
+    color: #111;
+    background: #e8e8e8;
+}
+
+.continue-button {
+    min-width: 126px;
+    padding: 0 18px;
+    color: #07190a;
+    background: var(--green);
+}
+
+.sidebar-back-button:hover,
+.continue-button:hover {
+    background: #0fc72b;
+}
+
+.back-button:hover {
+    background: #dcdcdc;
+}
+
+.sidebar-back-button:focus-visible,
+.back-button:focus-visible,
+.continue-button:focus-visible,
+.form-field select:focus-visible,
+.form-field input:focus-visible {
+    outline: 2px solid #168f2a;
+    outline-offset: 2px;
+}
+
+/* Footer markup is supplied by your existing footer.php */
+footer,
+.site-footer,
+.footer {
+    width: 100%;
+}
+
+/* Responsive layout */
+@media (min-width: 1200px) {
+    .registration-main {
+        padding-right: 22px;
+        padding-left: 20px;
+    }
+}
+
+@media (max-width: 700px) {
+    .registration-layout {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .registration-sidebar {
+        padding: 18px 20px;
+        border-right: 0;
+        border-bottom: 1px solid #bcbcbc;
+    }
+
+    .registration-sidebar h2 {
+        margin-bottom: 16px;
+        white-space: normal;
+    }
+
+    .progress-steps {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 14px 18px;
+    }
+
+    .progress-steps::before {
+        display: none;
+    }
+
+    .step {
+        gap: 6px;
+        min-height: 32px;
+    }
+
+    .step-copy {
+        padding-top: 3px;
+    }
+
+    .step-copy span {
+        white-space: normal;
+    }
+
+    .sidebar-back-button {
+        position: static;
+        margin-top: 18px;
+    }
+
+    .registration-main {
+        padding: 25px 16px 32px;
+    }
+
+    .registration-main h1 {
+        font-size: 23px;
+    }
+
+    .fields-panel {
+        padding: 14px 12px 18px;
+    }
+
+    .form-actions {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 420px) {
+    .form-card-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .plant-name-label {
+        width: 100%;
+    }
+
+    .step-count {
+        align-self: flex-end;
+    }
+
+    .form-actions {
+        gap: 10px;
+    }
+
+    .back-button,
+    .continue-button {
+        min-width: 0;
+        flex: 1;
+        padding: 0 10px;
+    }
+}

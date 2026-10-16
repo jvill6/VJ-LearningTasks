@@ -1,4 +1,7 @@
 <footer class="site-footer">
+	<head>
+		<link rel="stylesheet" href="styling.css">
+	</head>
 	<div class="footer-inner">
 		
         <!-- wow we love html semantics!!!!-->
