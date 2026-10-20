@@ -1,0 +1,86 @@
+/* Nav elements*/
+
+nav {
+    padding-bottom: 30px;
+} .navbar {
+    background-color: #a3edff;
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    border-bottom: 10px solid;
+
+} .navLink {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #000;
+    background-color: transparent;
+    text-decoration: none;
+    justify-content: right;
+}  .navLink:hover {
+    border-radius: 5px;
+    background-color: #68e1ff;
+}.navDeco {
+    margin-right: auto;
+    order: 0;
+}
+
+
+
+
+/*Page Layout Styling*/
+
+article {
+    /*For some reason, i have to do this to get the div to be the full width*/
+    position: absolute;
+    width: 100%;
+    top: 60px;
+    left: 0;
+    display: flex;
+    justify-content: center;
+}
+.mainContainer {
+    min-height: 10px;
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+} 
+.section {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+} #s1 {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    background-color: orange;
+    height: 500px;
+} #s2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #cfb88c;
+    height: 500px;
+} #s3 {
+    border-top: 3px solid #FFF;    
+    background-color: #cfb88c;
+    height: 1000px;
+    display: flex; 
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+} #footer {
+    border-top: 10px solid;
+    background-color: pink;
+    height: 100px;
+}
+
