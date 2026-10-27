@@ -75,6 +75,9 @@
         align-items: center;
         margin-left: 25px;
         margin-bottom: 20px;
+        color: inherit;
+        text-decoration: none;
+        cursor: pointer;
     }
     
 
@@ -224,10 +227,10 @@
                 <img src="Images/settings.png"></img>
                 Settings
             </div>
-            <div class="username">
+            <a class="username" href="logout.php" aria-label="Log out" title="Log out">
                 <img src="Images/profile.png" style="height: 20px; width: 25px;">
                 Username
-            </div>
+            </a>
         </div>
 
 

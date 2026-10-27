@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user_email'])) {
+    header('Location: index.php');
+    exit;
+}
+
+$displayName = trim(($_SESSION['user_fName'] ?? '') . ' ' . ($_SESSION['user_lName'] ?? ''));
+if ($displayName === '') {
+    $displayName = $_SESSION['user_email'];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,6 +95,9 @@
         align-items: center;
         margin-left: 25px;
         margin-bottom: 20px;
+        color: inherit;
+        text-decoration: none;
+        cursor: pointer;
     }
     
 
@@ -330,15 +346,15 @@
                 <img src="Images/settings.png"></img>
                 <p style="font-size: 13.5px;">Settings</p>
             </div>
-            <div class="username">
+            <a class="username" href="logout.php" aria-label="Log out" title="Log out">
                 <img src="Images/profile.png" style="height: 20px; width: 25px;">
-                <p>Username</p>
-            </div>
+                <p><?= htmlspecialchars($displayName, ENT_QUOTES, 'UTF-8') ?></p>
+            </a>
         </div>
 
 
         <div class="white">
-            <h1>Good morning, User</h1>
+            <h1>Good morning, <?= htmlspecialchars($displayName, ENT_QUOTES, 'UTF-8') ?></h1>
              <div class="row">
                     System status is optional 2 alerts require attention.
                 <div class="newtask">
