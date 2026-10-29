@@ -1,18 +1,94 @@
 <?php
-$msg = "meow";
-// If upload button is clicked ...
-if (isset($_POST['upload'])) {
-$filename = $_FILES["uploadfile"]["name"];
-$tempname = $_FILES["uploadfile"]["tmp_name"];
-$folder = "./image/" . $filename;
-$db = mysqli_connect("sql302.byethost33.com", "b33_42644196", "verti_plant_123", "gallery");
-// Get all the submitted data from the form
-$sql = 'INSERT INTO image (filename) VALUES (\''.$filename.'\')';
- 
-// Execute query
-mysqli_query($db, $sql);
-}?>
+require_once 'sessionManager.php';
+include 'conn.php';
 
+$uploadMessage = '';
+$profileImage = '';
+$skipLatestProfileLookup = false;
+
+$uploadDir = __DIR__ . '/Images/';
+if (!is_dir($uploadDir)) {
+    mkdir($uploadDir, 0777, true);
+}
+
+if (isset($_POST['upload']) && isset($_FILES['uploadfile'])) {
+    $file = $_FILES['uploadfile'];
+
+    if ($file['error'] === UPLOAD_ERR_OK && !empty($file['name'])) {
+        $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+        $fileType = mime_content_type($file['tmp_name']);
+        $extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+        $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+
+        if (in_array($fileType, $allowedTypes, true) && in_array($extension, $allowedExtensions, true)) {
+            $storedName = uniqid('profile_', true) . '.' . $extension;
+            $targetPath = $uploadDir . $storedName;
+
+            if (move_uploaded_file($file['tmp_name'], $targetPath)) {
+                $stmt = mysqli_prepare($conn, 'INSERT INTO gallery (filename) VALUES (?)');
+                mysqli_stmt_bind_param($stmt, 's', $storedName);
+
+                if (mysqli_stmt_execute($stmt)) {
+                    $uploadMessage = 'Image uploaded successfully.';
+                    $profileImage = $storedName;
+                } else {
+                    $uploadMessage = 'Upload failed: database insert error.';
+                }
+
+                mysqli_stmt_close($stmt);
+            } else {
+                $uploadMessage = 'Upload failed: could not move the file to the server.';
+            }
+        } else {
+            $uploadMessage = 'Only JPG, PNG, GIF, and WEBP images are allowed.';
+        }
+    } elseif ($file['error'] !== UPLOAD_ERR_NO_FILE) {
+        $uploadMessage = 'Upload failed. Please try again.';
+    }
+}
+
+if (isset($_POST['remove_profile'])) {
+    if (empty($profileImage)) {
+        $result = mysqli_query($conn, 'SELECT filename FROM gallery ORDER BY filename DESC LIMIT 1');
+        if ($result && mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+            if (!empty($row['filename'])) {
+                $profileImage = $row['filename'];
+            }
+        }
+    }
+
+    $currentFile = basename((string) $profileImage);
+
+    if ($currentFile !== '' && $currentFile !== '.' && $currentFile !== '..') {
+        $filePath = $uploadDir . $currentFile;
+        if (is_file($filePath)) {
+            unlink($filePath);
+        }
+
+        $stmt = mysqli_prepare($conn, 'DELETE FROM gallery WHERE filename = ?');
+        mysqli_stmt_bind_param($stmt, 's', $currentFile);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+
+        $profileImage = '';
+        $skipLatestProfileLookup = true;
+        $uploadMessage = 'Profile picture removed successfully.';
+    } else {
+        $uploadMessage = 'No profile picture available to remove.';
+    }
+}
+
+if (empty($profileImage) && !$skipLatestProfileLookup) {
+    $result = mysqli_query($conn, 'SELECT filename FROM gallery ORDER BY filename DESC LIMIT 1');
+    if ($result && mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        if (!empty($row['filename'])) {
+            $profileImage = $row['filename'];
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,6 +153,14 @@ mysqli_query($db, $sql);
             place-items: center;
             color: white;
             font-size: 36px;
+            overflow: hidden;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .profile h1 {
@@ -260,17 +344,11 @@ mysqli_query($db, $sql);
         <div class="layout">
             <aside class="profile">
                 <div class="avatar">
-
-                    <?php
-$query = " SELECT * FROM image ";
-$result = mysqli_query($db, $query);
-while ($data = mysqli_fetch_assoc($result)) {
-?>
-<img src="./image/<?php echo $data['filename']; ?>">
-<?php
-}
-?>
-
+                    <?php if (!empty($profileImage)): ?>
+                        <img src="Images/<?php echo htmlspecialchars($profileImage, ENT_QUOTES, 'UTF-8'); ?>" alt="Profile image">
+                    <?php else: ?>
+                        P
+                    <?php endif; ?>
                 </div>
                 <h1>Fname Lname ✎</h1>
                 <a class="email" href="mailto:s232424@gmail.com">s232424@gmail.com</a>
@@ -304,11 +382,15 @@ while ($data = mysqli_fetch_assoc($result)) {
       </div>
       <div class="modal-body">
             <div id="content">
+            <?php if (!empty($uploadMessage)): ?>
+                <div class="alert alert-info" role="alert"><?php echo htmlspecialchars($uploadMessage, ENT_QUOTES, 'UTF-8'); ?></div>
+            <?php endif; ?>
             <form method="POST" action="" enctype="multipart/form-data">
             <div class="form-group">
-            <input class="form-control" type="file" name="uploadfile" value="" />
+            <input class="form-control" type="file" name="uploadfile" value="" accept="image/*" />
             </div>
             <div class="form-group modal-footer">
+            <button type="submit" class="btn btn-outline-danger" name="remove_profile">Remove Picture</button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             <button class="btn btn-primary" type="submit" name="upload">Save Changes</button>
             </div>

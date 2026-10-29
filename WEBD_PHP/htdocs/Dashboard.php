@@ -1,10 +1,5 @@
 <?php
-session_start();
-
-if (!isset($_SESSION['user_email'])) {
-    header('Location: index.php');
-    exit;
-}
+require_once 'sessionManager.php';
 
 $displayName = trim(($_SESSION['user_fName'] ?? '') . ' ' . ($_SESSION['user_lName'] ?? ''));
 if ($displayName === '') {

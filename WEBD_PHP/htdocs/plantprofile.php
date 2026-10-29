@@ -1,3 +1,5 @@
+<?php require_once 'sessionManager.php';?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
